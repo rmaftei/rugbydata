@@ -1,0 +1,11 @@
+{
+  "name": "rugby-data",
+  "version": "1.0.0",
+  "description": "Different modules that scrapes data from rugby championship websites",
+  "main": "main.js",
+  "author": "Romeo Maftei",
+  "license": "MIT",
+  "dependencies": {
+    "puppeteer": "^2.0.0"
+  }
+}
