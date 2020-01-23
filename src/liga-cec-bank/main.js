@@ -3,7 +3,7 @@ const config = require("./config");
 
 const getData = async ()=> {
     const browser =await puppeteer.launch({
-        executablePath: '/usr/bin/chromium',
+        executablePath: '/usr/bin/chromium-browser',
         args: ['--no-sandbox', '--headless', '--disable-gpu']});
         
     let page = await browser.newPage();
