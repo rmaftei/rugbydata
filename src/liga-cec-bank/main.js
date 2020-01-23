@@ -3,14 +3,14 @@ const config = require("./config");
 
 const getData = async ()=> {
     const browser =await puppeteer.launch({
-        executablePath: '/usr/bin/chromium',
+        executablePath: '/usr/bin/chromium-browser',
         args: ['--no-sandbox', '--headless', '--disable-gpu']});
-
-    const page = await browser.newPage();
+        
+    let page = await browser.newPage();
 
     await page.goto(config.url, {awaitUntil: 'networkidle2'});
 
-    const data = await page.evaluate(() => {
+    let data = await page.evaluate(() => {
         const sanitize = (stringValue) => {
             return stringValue.replace("\nora", "");
         };
@@ -26,12 +26,12 @@ const getData = async ()=> {
             }
         };
 
-        const title = document.querySelector('.sl_team_header h2').innerText
+        let title = document.querySelector('.sl_team_header h2').innerText
 
         const TOTAL_ETAPE = 14;
         const STEP = 5;
-        const games = []
-        const stageNumber = 1;
+        let games = []
+        let stageNumber = 1;
 
         for(let i = 1; i <= TOTAL_ETAPE * STEP; i = i + STEP) {
             games.push(Object.assign(getGameDetails(document, i + 2), {stage: stageNumber}));
